@@ -505,6 +505,53 @@ body:not(.user-is-tabbing) a:focus {
   }
 }
 
+.showcase {
+  padding: 4rem 0;
+}
+.showcase h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.snippets {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+.snippet {
+  display: flex;
+  flex-wrap: wrap;
+  background: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.snippet__code,
+.snippet__demo {
+  flex: 1 1 300px;
+}
+.snippet__code {
+  padding: 1rem;
+  overflow-x: auto;
+}
+.snippet__code pre {
+  margin: 0;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.9rem;
+}
+.snippet__demo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 768px) {
+  .snippets {
+    grid-template-columns: 1fr 1fr;
+  }
+  .snippet {
+    flex-wrap: nowrap;
+  }
+}
+
 /* --------------------------------------- */
 /* ----- Projects ----- */
 /* --------------------------------------- */
