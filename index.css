@@ -505,44 +505,66 @@ body:not(.user-is-tabbing) a:focus {
   }
 }
 
-.showcase {
+/* --------------------------------------- */
+/* ----- CodeDemo ----- */ 
+/* --------------------------------------- */
+.codedemo {
   padding: 4rem 0;
 }
-.showcase h2 {
+.codedemo h2 {
   text-align: center;
   margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #333;
 }
+/* Container for all snippets */
 .snippets {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
+
+/* Individual snippet box */
 .snippet {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;             /* force side-by-side */
   background: #1e1e1e;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
-.snippet__code,
-.snippet__demo {
-  flex: 1 1 300px;
-}
+
+/* Code panel */
 .snippet__code {
+  flex: 1 1 0;
   padding: 1rem;
-  overflow-x: auto;
+  max-height: 300px;             /* limit height */
+  overflow-y: auto;              /* vertical scroll */
+  overflow-x: auto;              /* horizontal scroll if needed */
 }
+
+/* Ensure <pre> uses monospace and no extra margins */
 .snippet__code pre {
   margin: 0;
   font-family: 'Source Code Pro', monospace;
   font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* GIF/demo panel */
+.snippet__demo {
+  flex: 0 0 200px;               /* fixed width for GIF */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
 }
 .snippet__demo img {
-  display: block;
-  width: 100%;
+  max-width: 100%;
   height: auto;
+  display: block;
 }
+
 @media (min-width: 768px) {
   .snippets {
     grid-template-columns: 1fr 1fr;
